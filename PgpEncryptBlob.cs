@@ -45,15 +45,16 @@ namespace tjpetz.adfpgpfunctions
             log.LogInformation($"container = {containerName}");
             log.LogInformation($"path = {blobPath}");
 
+            byte[] publicKeyBytes = Convert.FromBase64String(publicKeyBase64);
+            string publicKey = Encoding.UTF8.GetString(publicKeyBytes);
+
             BlobContainerClient inputContainer = new BlobContainerClient(storageConnectionString, containerName);
             BlobClient blobClient = inputContainer.GetBlobClient(blobPath);
 
             // Create a memory stream and download the blob into the stream
             using var ms = new MemoryStream();
             await blobClient.DownloadToAsync(ms);
-
-            byte[] publicKeyBytes = Convert.FromBase64String(publicKeyBase64);
-            string publicKey = Encoding.UTF8.GetString(publicKeyBytes);
+            ms.Seek(0, SeekOrigin.Begin);
 
             Stream encryptedData = await EncryptAsync(ms, publicKey);
 
