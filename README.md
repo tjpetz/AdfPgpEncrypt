@@ -1,4 +1,4 @@
-#AdfPgpEncrypt
+# AdfPgpEncrypt
 
 An Azure Function that will PGP encrypt a blob.  Designed to be called from an Azure Data Factory pipeline.
 
