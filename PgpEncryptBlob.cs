@@ -1,3 +1,9 @@
+/*
+ *  Azure Function to be used in ADF pipelines to PGP encrypt a blob.
+ *
+ *  Derived from http://github.com/lfalck/AzureFunctionsPGPEncrypt
+*/
+
 using System;
 using System.IO;
 using System.Threading.Tasks;
