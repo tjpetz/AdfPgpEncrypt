@@ -1,7 +1,7 @@
 /*
  *  Azure Function to be used in ADF pipelines to PGP decrypt a blob.
  *
- *  Derived from http://github.com/lfalck/AzureFunctionsPGPEncrypt
+ *  Derived from http://github.com/lfalck/AzureFunctionsPGPDecrypt
 */
 
 using System;
